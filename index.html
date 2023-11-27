@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp QR Code</title>
+</head>
+<body>
+  <h1>WhatsApp QR Code</h1>
+  <img id="qrCodeDiv" alt="QR Code" />
+
+  <script>
+    // If you're using a browser environment to display the QR code, 
+    // you can use an AJAX request to get the QR code from your Node.js server.
+    // For example, using fetch:
+    fetch('http://localhost:3000/qrcode')
+      .then(response => response.blob())
+      .then(blob => {
+        const objectURL = URL.createObjectURL(blob);
+        document.getElementById('qrCodeDiv').src = objectURL;
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>
